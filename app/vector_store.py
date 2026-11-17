@@ -1,14 +1,17 @@
-from langchain_ollama import OllamaEmbeddings
+from langchain_ollama import (
+    OllamaEmbeddings,
+)
+
 from langchain_postgres.vectorstores import (
     DistanceStrategy,
     PGVector,
 )
 
-from config import (
-    DB_URL,
+from .config import (
     COLLECTION_NAME,
-    EMBEDDING_MODEL,
+    DB_URL,
     EMBEDDING_DIMENSION,
+    EMBEDDING_MODEL,
 )
 
 
@@ -25,8 +28,12 @@ def get_vector_store(
         embeddings=embeddings,
         connection=DB_URL,
         collection_name=COLLECTION_NAME,
-        embedding_length=EMBEDDING_DIMENSION,
-        distance_strategy=DistanceStrategy.COSINE,
+        embedding_length=(
+            EMBEDDING_DIMENSION
+        ),
+        distance_strategy=(
+            DistanceStrategy.COSINE
+        ),
         use_jsonb=True,
         pre_delete_collection=recreate,
     )

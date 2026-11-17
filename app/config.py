@@ -7,7 +7,7 @@ KNOWLEDGE_DIR = PROJECT_ROOT / "knowledge"
 DB_URL = (
     "postgresql+psycopg://"
     "rag_user:rag_password"
-    "@localhost:5432/"
+    "@localhost:5433/"
     "rag_course"
 )
 
@@ -22,3 +22,15 @@ CHUNK_SIZE = 600
 CHUNK_OVERLAP = 100
 
 TOP_K = 3
+
+ALLOWED_EXTENSIONS = {
+    ".md",
+    ".txt",
+}
+
+MAX_UPLOAD_BYTES = 1_000_000
+
+
+CORS_ORIGINS = [
+    "http://localhost:5173",
+]

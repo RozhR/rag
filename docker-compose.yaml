@@ -1,26 +1,20 @@
 services:
 
-
   postgres:
     image: pgvector/pgvector:0.8.6-pg17
 
-
     container_name: rag-postgres
-
 
     environment:
       POSTGRES_DB: rag_course
       POSTGRES_USER: rag_user
       POSTGRES_PASSWORD: rag_password
 
-
     ports:
       - "5432:5432"
 
-
     volumes:
       - pgvector_data:/var/lib/postgresql/data
-
 
     healthcheck:
       test:
@@ -31,8 +25,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-
-
 
 
 volumes:
